@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h1 class="mb-4">Painel por Setores - Gráfico</h1>
+
+  <form class="row g-3 mb-4" method="get">
+    <div class="col-md-3">
+      <label for="start_date" class="form-label">Data Início</label>
+      <input type="date" id="start_date" name="start_date" class="form-control" value="{{ start_date }}" required>
+    </div>
+    <div class="col-md-3">
+      <label for="end_date" class="form-label">Data Fim</label>
+      <input type="date" id="end_date" name="end_date" class="form-control" value="{{ end_date }}" required>
+    </div>
+    <div class="col-md-3 align-self-end">
+      <button class="btn btn-primary w-100" type="submit">Filtrar</button>
+    </div>
+  </form>
+
+  <div class="card shadow-sm p-4">
+    <canvas id="chartSetores" style="max-width: 100%; height: 400px;"></canvas>
+  </div>
+</div>
+
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('chartSetores').getContext('2d');
+  const chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: {{ setores_labels | tojson }},
+      datasets: [{
+        label: 'Páginas Impressas',
+        data: {{ setores_data | tojson }},
+        backgroundColor: 'rgba(54, 162, 235, 0.7)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1,
+        borderRadius: 4,
+        maxBarThickness: 60,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          display: true,
+          labels: { boxWidth: 20 }
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return context.dataset.label + ': ' + context.parsed.y + ' pág.';
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          ticks: {
+            maxRotation: 45,
+            minRotation: 0,
+            autoSkip: true
+          }
+        },
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Páginas'
+          },
+          ticks: {
+            stepSize: 1
+          }
+        }
+      }
+    }
+  });
+</script>
+{% endblock %}

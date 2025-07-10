@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - Print Monitor{% endblock %}
+{% block head %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+{% block content %}
+<h2>Dashboard</h2>
+
+<div class="row mb-4">
+  <div class="col-md-3 col-6">
+    <div class="card bg-secondary text-light mb-3">
+      <div class="card-body text-center">
+        <h5>Total Impressões</h5>
+        <h3>{{ total_impressos }}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-6">
+    <div class="card bg-secondary text-light mb-3">
+      <div class="card-body text-center">
+        <h5>Total Páginas</h5>
+        <h3>{{ total_paginas }}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-6">
+    <div class="card bg-secondary text-light mb-3">
+      <div class="card-body text-center">
+        <h5>Total Usuários</h5>
+        <h3>{{ total_usuarios }}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-6">
+    <div class="card bg-secondary text-light mb-3">
+      <div class="card-body text-center">
+        <h5>Total Setores</h5>
+        <h3>{{ total_setores }}</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row gy-4">
+  <div class="col-md-6">
+    <h5>Impressões por Setor (Top 5)</h5>
+    <canvas id="chartSetores"></canvas>
+  </div>
+  <div class="col-md-6">
+    <h5>Impressões por Usuário (Top 5)</h5>
+    <canvas id="chartUsuarios"></canvas>
+  </div>
+</div>
+
+<div class="row gy-4 mt-4">
+  <div class="col-12">
+    <h5>Impressões Últimos 7 dias</h5>
+    <canvas id="chart7dias"></canvas>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const ctxSetores = document.getElementById("chartSetores").getContext("2d");
+  const chartSetores = new Chart(ctxSetores, {
+    type: "bar",
+    data: {
+      labels: {{ setores_labels|tojson }},
+      datasets: [
+        {
+          label: "Impressões",
+          data: {{ setores_values|tojson }},
+          backgroundColor: "#58a6ff",
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: { beginAtZero: true },
+      },
+    },
+  });
+
+  const ctxUsuarios = document.getElementById("chartUsuarios").getContext("2d");
+  const chartUsuarios = new Chart(ctxUsuarios, {
+    type: "bar",
+    data: {
+      labels: {{ usuarios_labels|tojson }},
+      datasets: [
+        {
+          label: "Impressões",
+          data: {{ usuarios_values|tojson }},
+          backgroundColor: "#f85149",
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: { beginAtZero: true },
+      },
+    },
+  });
+
+  const ctx7dias = document.getElementById("chart7dias").getContext("2d");
+  const chart7dias = new Chart(ctx7dias, {
+    type: "line",
+    data: {
+      labels: {{ dias_labels|tojson }},
+      datasets: [
+        {
+          label: "Impressões",
+          data: {{ dias_values|tojson }},
+          fill: false,
+          borderColor: "#79c0ff",
+          tension: 0.3,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: { beginAtZero: true },
+      },
+    },
+  });
+</script>
+{% endblock %}

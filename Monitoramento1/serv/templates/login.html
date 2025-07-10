@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+
+    <style>
+    :root {
+        --main-bg: #f4f4f4;
+        --main-text: #333;
+        --container-bg: #fff;
+        --error-color: #dc3545;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: var(--main-bg);
+        margin: 0;
+        padding: 0;
+        color: var(--main-text);
+    }
+
+    .container {
+        max-width: 400px;
+        margin: 100px auto;
+        padding: 30px;
+        background: var(--container-bg);
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        border-radius: 8px;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    form input[type="text"],
+    form input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        box-sizing: border-box;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    .alert {
+        color: var(--error-color);
+        margin-top: 15px;
+        padding: 10px;
+        border: 1px solid var(--error-color);
+        border-radius: 4px;
+        background-color: #f8d7da;
+        list-style-type: none;
+    }
+
+    @media (max-width: 480px) {
+        .container {
+            width: 90%;
+            margin: 50px auto;
+            padding: 20px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form method="POST">
+            <label>Usuário:</label>
+            <input type="text" name="username" required>
+            <label>Senha:</label>
+            <input type="password" name="password" required>
+            <button type="submit">Entrar</button>
+        </form>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="alert">
+              {% for category, message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+    "server_url": "http://192.168.0.4:5002/api/print_events",
+    "retry_interval": 30,
+    "check_interval": 5,
+    "max_retries": 3,
+    "log_level": "INFO",
+    "batch_size": 50,
+    "process_all_on_start": true
+}

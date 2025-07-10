@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Cadastro de Materiais por Data</h2>
+
+<!-- Formulário para adicionar novo material -->
+<form method="post" class="row g-3 mb-4">
+  <input type="hidden" name="action" value="add">
+  <div class="col-md-3">
+    <label class="form-label">Nome do Material</label>
+    <input type="text" class="form-control" name="nome" required>
+  </div>
+  <div class="col-md-3">
+    <label class="form-label">Preço (R$)</label>
+    <input type="number" step="0.01" class="form-control" name="preco" required>
+  </div>
+  <div class="col-md-3">
+    <label class="form-label">Rendimento (imp.)</label>
+    <input type="number" class="form-control" name="rendimento" required>
+  </div>
+  <div class="col-md-3">
+    <label class="form-label">Data de Vigência</label>
+    <input type="date" class="form-control" name="data_inicio" required>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Salvar</button>
+  </div>
+</form>
+
+<!-- Filtro para data de referência do custo total -->
+<form method="get" action="{{ url_for('admin_precos') }}" class="mb-4 row g-3 align-items-center">
+  <div class="col-auto">
+    <label for="data_ref" class="col-form-label">Calcular custo para a data:</label>
+  </div>
+  <div class="col-auto">
+    <input type="date" id="data_ref" name="data_ref" class="form-control" value="{{ data_ref }}">
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-secondary">Atualizar</button>
+  </div>
+</form>
+
+<p><strong>Custo total estimado por página para {{ data_ref }}: R$ {{ "%.5f"|format(custo_total) }}</strong></p>
+
+<h3 class="mt-5">Histórico de Materiais e Custos</h3>
+<table class="table table-bordered table-striped mt-3">
+  <thead>
+    <tr>
+      <th>Material</th>
+      <th>Preço (R$)</th>
+      <th>Rendimento</th>
+      <th>Valor por Impressão (R$)</th>
+      <th>Data de Vigência</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for mat in materiais %}
+    <tr>
+      <form method="post" class="d-flex align-items-center">
+        <td>
+          <input type="text" name="nome" value="{{ mat.nome }}" readonly class="form-control-plaintext" style="min-width: 100px;">
+        </td>
+        <td>
+          <input type="number" step="0.01" name="preco" value="{{ mat.preco }}" class="form-control" style="max-width: 120px;">
+        </td>
+        <td>
+          <input type="number" name="rendimento" value="{{ mat.rendimento }}" class="form-control" style="max-width: 100px;">
+        </td>
+        <td>
+          <strong>{{ "%.5f"|format(mat.valor) }}</strong>
+        </td>
+        <td>
+          <input type="date" name="data_inicio" value="{{ mat.data_inicio }}" class="form-control" style="max-width: 150px;">
+        </td>
+        <td>
+          <button type="submit" name="action" value="update" class="btn btn-sm btn-warning me-2">Atualizar</button>
+          <button type="submit" name="action" value="delete" class="btn btn-sm btn-danger" onclick="return confirm('Confirma exclusão do material {{ mat.nome }}?');">Excluir</button>
+        </td>
+      </form>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

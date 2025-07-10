@@ -1,0 +1,128 @@
+:root {
+  /* Light mode colors */
+  --bg-light: #f6f8fa;
+  --text-dark: #24292f;
+  --navbar-bg-light: #2f81f7; /* azul GitHub */
+  --link-color-light: #0969da;
+  --link-hover-light: #0a64d4;
+
+  /* Dark mode colors inspired by GitHub Dark */
+  --bg-dark: #0d1117;
+  --text-light: #c9d1d9;
+  --card-bg-dark: #161b22;
+  --navbar-bg-dark: #161b22;
+  --input-bg-dark: #0d1117;
+  --input-border-dark: #30363d;
+  --hover-dark: #21262d;
+  --scroll-thumb: #484f58;
+  --scroll-track: #0d1117;
+  --link-color-dark: #58a6ff;
+  --link-hover-dark: #79c0ff;
+  --border-color-dark: #30363d;
+
+  /* Variáveis adicionais para o layout */
+  --gap: 20px;
+  --border-radius: 10px;
+  --box-shadow-light: 0 4px 8px rgba(0,0,0,0.1);
+  --box-shadow-hover: 0 8px 16px rgba(0,0,0,0.15);
+  --primary-color: #007bff;
+  --primary-color-hover: #0056b3;
+  --card-bg-light: #ffffff;
+}
+
+/* Dark mode geral */
+.dark-mode {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.dark-mode a {
+  color: var(--link-color-dark);
+}
+.dark-mode a:hover {
+  color: var(--link-hover-dark);
+  text-decoration: underline;
+}
+
+/* Sidebar dark */
+.dark-mode .sidebar {
+  background-color: var(--navbar-bg-dark);
+}
+
+/* Main content dark */
+.dark-mode .main-content {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+}
+
+/* Cards dark */
+.dark-mode .card, .dark-mode .item {
+  background-color: var(--card-bg-dark);
+  color: var(--text-light);
+  border: 1px solid var(--border-color-dark);
+  box-shadow: 0 1px 3px rgb(1 4 9 / 0.5);
+}
+
+/* Tabela dark */
+.dark-mode table {
+  color: var(--text-light);
+  border-color: var(--border-color-dark);
+}
+.dark-mode th {
+  background-color: var(--card-bg-dark);
+  border-bottom: 1px solid var(--border-color-dark);
+}
+.dark-mode td {
+  border-top: 1px solid var(--border-color-dark);
+}
+.dark-mode tr:hover {
+  background-color: var(--hover-dark);
+}
+
+/* Inputs dark */
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+  background-color: var(--input-bg-dark);
+  color: var(--text-light);
+  border: 1px solid var(--input-border-dark);
+}
+
+/* Botões dark */
+.dark-mode .btn-primary {
+  background-color: #238636;
+  border-color: #238636;
+}
+.dark-mode .btn-primary:hover {
+  background-color: #2ea043;
+  border-color: #2ea043;
+}
+
+.dark-mode .btn-outline-primary {
+  color: var(--link-color-dark);
+  border-color: var(--link-color-dark);
+}
+.dark-mode .btn-outline-primary:hover {
+  background-color: var(--link-hover-dark);
+  color: #fff;
+  border-color: var(--link-hover-dark);
+}
+
+/* Modal dark */
+.dark-mode .modal-content {
+  background-color: var(--card-bg-dark);
+  color: var(--text-light);
+  border: 1px solid var(--border-color-dark);
+}
+
+/* Scrollbar dark */
+.dark-mode ::-webkit-scrollbar {
+  width: 10px;
+}
+.dark-mode ::-webkit-scrollbar-track {
+  background: var(--scroll-track);
+}
+.dark-mode ::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb);
+  border-radius: 10px;
+}

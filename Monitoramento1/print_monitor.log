@@ -1,0 +1,61 @@
+2025-07-10 13:18:39,920 - INFO - 📁 Configuração carregada de: config.json
+2025-07-10 13:18:39,921 - INFO - 🧪 Executando testes iniciais...
+2025-07-10 13:18:40,145 - INFO - ✅ PowerShell funcionando
+2025-07-10 13:18:40,185 - INFO - ✅ Conexão com servidor OK
+2025-07-10 13:18:40,185 - INFO - 💻 Máquina: TI
+2025-07-10 13:18:40,186 - INFO - 📋 Carregados 0 eventos já processados (todas as máquinas)
+2025-07-10 13:18:40,186 - INFO - 📌 Eventos desta máquina já processados: 0
+2025-07-10 13:18:40,186 - INFO - 📌 Maior ID processado nesta máquina: 0
+2025-07-10 13:18:40,186 - INFO - === Iniciando monitoramento de eventos de impressão ===
+2025-07-10 13:18:40,186 - INFO - 📡 Servidor: http://192.168.0.4:5002/api/print_events
+2025-07-10 13:18:40,187 - INFO - ⏱️ Intervalo de verificação: 5s
+2025-07-10 13:18:40,187 - INFO - 💻 Máquina: TI
+2025-07-10 13:18:40,187 - INFO - 📋 Processamento inicial de TODOS os eventos habilitado
+2025-07-10 13:18:40,188 - INFO - 🚀 Iniciando processamento de eventos...
+2025-07-10 13:18:40,188 - INFO - 🔍 Buscando TODOS os eventos 307 no log...
+2025-07-10 13:18:41,053 - INFO - 📊 Total de eventos encontrados: 30
+2025-07-10 13:18:41,054 - INFO - ✅ Carregados 30 eventos do PowerShell
+2025-07-10 13:18:41,054 - INFO - 📊 Total de eventos no log: 30
+2025-07-10 13:18:41,054 - INFO - ✅ Eventos já processados anteriormente: 0
+2025-07-10 13:18:41,054 - INFO - 🆕 Eventos novos para processar: 30
+2025-07-10 13:18:41,057 - INFO - 📊 Total de 30 eventos novos processados
+2025-07-10 13:18:41,057 - INFO - 📄 Total de 51 páginas impressas nos novos eventos
+2025-07-10 13:18:41,057 - INFO - 📑 9 eventos novos com múltiplas páginas
+2025-07-10 13:18:41,057 - INFO - 📋 Exemplos de eventos novos com múltiplas páginas:
+2025-07-10 13:18:41,058 - INFO -    - 2025-07-09 16:33:37 | giovanni | Documento de Impresso... | 4 páginas
+2025-07-10 13:18:41,058 - INFO -    - 2025-07-09 15:52:16 | Administrador | Documento de Impresso... | 2 páginas
+2025-07-10 13:18:41,058 - INFO -    - 2025-07-09 15:38:14 | Administrador | Documento de Impresso... | 2 páginas
+2025-07-10 13:18:41,058 - INFO -    - 2025-07-07 17:02:49 | giovanni | Documento de Impresso... | 3 páginas
+2025-07-10 13:18:41,058 - INFO -    - 2025-07-07 16:59:48 | giovanni | Documento de Impresso... | 2 páginas
+2025-07-10 13:18:41,058 - INFO - 📤 Enviando 30 eventos em lotes de 50...
+2025-07-10 13:18:41,058 - INFO - 📦 Enviando lote 1/1 (30 eventos)...
+2025-07-10 13:18:41,285 - INFO - ✅ Enviados 30/30 eventos com sucesso
+2025-07-10 13:18:41,287 - INFO - ✅ Eventos enviados e marcados como processados
+2025-07-10 13:18:41,287 - INFO - 📌 Maior ID processado nesta máquina: 0
+2025-07-10 13:18:41,287 - INFO - 👀 Monitorando novos eventos...
+2025-07-10 13:18:50,504 - INFO - ⏹️ Interrupção solicitada pelo usuário
+2025-07-10 13:18:50,506 - INFO - 👋 Monitoramento finalizado
+2025-07-10 13:18:53,688 - INFO - 📁 Configuração carregada de: config.json
+2025-07-10 13:18:53,688 - INFO - 🧪 Executando testes iniciais...
+2025-07-10 13:18:53,914 - INFO - ✅ PowerShell funcionando
+2025-07-10 13:18:53,965 - INFO - ✅ Conexão com servidor OK
+2025-07-10 13:18:53,966 - INFO - 💻 Máquina: TI
+2025-07-10 13:18:53,966 - INFO - 📋 Carregados 30 eventos já processados (todas as máquinas)
+2025-07-10 13:18:53,966 - INFO - 📌 Eventos desta máquina já processados: 0
+2025-07-10 13:18:53,966 - INFO - 📌 Maior ID processado nesta máquina: 0
+2025-07-10 13:18:53,966 - INFO - === Iniciando monitoramento de eventos de impressão ===
+2025-07-10 13:18:53,966 - INFO - 📡 Servidor: http://192.168.0.4:5002/api/print_events
+2025-07-10 13:18:53,967 - INFO - ⏱️ Intervalo de verificação: 5s
+2025-07-10 13:18:53,967 - INFO - 💻 Máquina: TI
+2025-07-10 13:18:53,967 - INFO - 📋 Processamento inicial de TODOS os eventos habilitado
+2025-07-10 13:18:53,967 - INFO - 🚀 Iniciando processamento de eventos...
+2025-07-10 13:18:53,967 - INFO - 🔍 Buscando TODOS os eventos 307 no log...
+2025-07-10 13:18:54,735 - INFO - 📊 Total de eventos encontrados: 30
+2025-07-10 13:18:54,736 - INFO - ✅ Carregados 30 eventos do PowerShell
+2025-07-10 13:18:54,736 - INFO - 📊 Total de eventos no log: 30
+2025-07-10 13:18:54,736 - INFO - ✅ Eventos já processados anteriormente: 30
+2025-07-10 13:18:54,736 - INFO - 🆕 Eventos novos para processar: 0
+2025-07-10 13:18:54,736 - INFO - ℹ️ Todos os eventos já foram processados anteriormente
+2025-07-10 13:18:54,736 - INFO - 👀 Monitorando novos eventos...
+2025-07-10 14:00:28,703 - INFO - ⏹️ Interrupção solicitada pelo usuário
+2025-07-10 14:00:28,726 - INFO - 👋 Monitoramento finalizado
